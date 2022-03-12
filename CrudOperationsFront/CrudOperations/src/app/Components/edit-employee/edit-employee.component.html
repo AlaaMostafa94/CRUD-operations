@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <br>
+    <form (ngSubmit)="EditEmployee()">
+        <div class="form-group">
+            <label for="empName">Employee Name</label>
+            <input type="text" #empName="ngModel"  name="empName" [(ngModel)]="employee.empName"  id="empName" class="form-control w-50" placeholder="Enter Employee name..." aria-describedby="NameErrorMsg">
+            <small id="NameErrorMsg" [hidden]="empName.valid || empName.untouched" class="text-danger">Employee name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="empTitle">Job Title</label>
+            <input type="text" #empTitle="ngModel" name="empTitle" [(ngModel)]="employee.empTitle"  id="empTitle" class="form-control w-50" placeholder="Enter Job title..." aria-describedby="JobErrorMsg">
+            <small id="JobErrorMsg" [hidden]="empTitle.valid || empTitle.untouched" class="text-danger">Title is required</small>
+        </div>
+        <div class="form-group">
+            <label for="empSalary">Salary</label>
+            <input type="number" min="0" #empSalary="ngModel" name="empSalary" [(ngModel)]="employee.empSalary"  id="empSalary" class="form-control w-50" aria-describedby="SalaryErrorMsg">
+            <small id="SalaryErrorMsg" [hidden]="empSalary.valid || empSalary.untouched" class="text-danger">Salary is required</small>
+        </div>
+        <div class="form-group">
+            <label for="empEmail">Email</label>
+            <input type="email" #empEmail="ngModel" name="empEmail" [(ngModel)]="employee.empEmail"  id="empEmail" class="form-control w-50" placeholder="Enter Email..." aria-describedby="EmailErrorMsg">
+            <small id="EmailErrorMsg" [hidden]="empEmail.valid || empEmail.untouched" class="text-danger">Email is required</small>
+        </div>
+        <div class="form-group">
+            <label for="empBirthDate">Birth Date</label>
+            <input type="date" #empBirthDate="ngModel" name="empBirthDate" [(ngModel)]="employee.empBirthDate"  id="empBirthDate" class="form-control w-50" aria-describedby="BirthErrorMsg">
+            <small id="BirthErrorMsg" [hidden]="empBirthDate.valid || empBirthDate.untouched" class="text-danger">Birth date is required</small>
+        </div>
+        <div class="form-group">
+            <label for="empPhoto">Photo</label>
+            <input type="text" #empPhoto="ngModel" name="empPhoto" [(ngModel)]="employee.empPhoto"  id="empPhoto" class="form-control w-50" aria-describedby="PhotoErrorMsg">
+            <small id="PhotoErrorMsg" [hidden]="empPhoto.valid || empPhoto.untouched" class="text-danger">Employee photo is required</small>
+        </div>
+        <div class="form-group">
+            <label for="countryID">Country</label>
+    
+    
+            <select #countryID="ngModel" name="countryID"  [(ngModel)]="employee.countryID" id="countryID" class="form-control w-50" >
+                <option value=0>Select</option>
+                <option *ngFor="let item of countryList" value={{item.countryID}}>{{item.countryName}}</option>
+    
+            </select>   
+    
+            <!-- <select name="countryID" [(ngModel)]="newEmployee.countryID"  id="countryID" class="form-control w-50" aria-describedby="NameErrorMsg">
+                <option *ngFor="let item of countryList" value={{item.countryID}}>{{item.countryName}}</option>
+            </select> -->
+            
+    
+            <small id="NameErrorMsg" [hidden]="empName.valid || empName.untouched" class="text-danger">Employee name is required</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <br><br>
+    </form>
+</div>

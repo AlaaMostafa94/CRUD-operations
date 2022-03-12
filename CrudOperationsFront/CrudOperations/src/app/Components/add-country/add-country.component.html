@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <br>
+<h3>Add Country</h3>
+<br>
+<form (ngSubmit)="addNewCountry()">
+    <div class="form-group">
+        <label for="countryName">Country Name</label>
+        <input type="text" #countryName="ngModel" name="countryName" [(ngModel)]="newCountry.countryName"  id="countryName" class="form-control w-50" placeholder="Enter Country name..." aria-describedby="NameErrorMsg">
+        <small id="NameErrorMsg" [hidden]="countryName.valid || countryName.untouched" class="text-danger">Country name is required</small>
+    </div>
+    <div class="form-group">
+        <label for="countryCode">Country Code</label>
+        <input type="text" #countryCode="ngModel" name="countryCode" [(ngModel)]="newCountry.countryCode" id="countryCode" class="form-control w-50" placeholder="Enter Country code..." aria-describedby="CodeErrorMsg">
+        <small id="CodeErrorMsg" [hidden]="countryCode.valid || countryCode.untouched" class="text-danger">Country code is required</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <br><br>
+</form>
+</div>
